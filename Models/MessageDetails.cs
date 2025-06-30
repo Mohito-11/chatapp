@@ -19,6 +19,17 @@ namespace ChatApp.Models
         public string ForwardedTo { get; set; }
         public string IsReplied { get; set; }
         public string RepliedTo { get; set; }
+        public string ReplySender { get; set; }
+        public string RepliedText { get; set; }
+        public ReplyTo replyTo { get; set; }
+    }
+
+    public class ReplyTo
+    {
+        public string messageId { get; set; }
+        public string sender { get; set; }
+        
+        public string message { get; set; }
     }
 
     public class EditMessageRequest

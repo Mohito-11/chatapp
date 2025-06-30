@@ -37,7 +37,8 @@ namespace ChatApp.Controllers
             string jsonLine = JsonSerializer.Serialize(message);
             await System.IO.File.AppendAllLinesAsync(filePath, new[] { jsonLine });
 
-            await _chatHub.Clients.Group(message.To).SendAsync("ReceiveMessage", message);
+            await _chatHub.Clients.All.SendAsync("ReceiveMessage", message);
+
             return Ok(new { status = "Message Sent" });
         }
 
